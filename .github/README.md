@@ -1,5 +1,7 @@
 # fsread.nvim
 
+Flow state reading in neovim
+
 https://user-images.githubusercontent.com/56817415/203623326-b12af198-e1ec-49d2-a170-c314241a8864.mp4
 
 ## Installation
@@ -25,6 +27,7 @@ vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#cdd6f4" })
 vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#6C7086" })
 ```
 
-## Reference
+## Thanks to
 
-https://github.com/thatvegandev/fsrx
+[thatvegandev/fsrx](https://github.com/thatvegandev/fsrx)
+[bionic-reading.com](https://bionic-reading.com/)
