@@ -54,10 +54,10 @@ function M.clear()
 	ns_id = vim.api.nvim_create_namespace("fsread")
 end
 
-function M.toggle()
+function M.toggle(opts)
 	M.on = not M.on
 	if M.on then
-		M.create()
+		M.create(opts)
 	else
 		M.clear()
 	end
@@ -75,8 +75,8 @@ end, {
 	range = 2,
 })
 
-vim.api.nvim_create_user_command("FSToggle", function()
-	M.toggle()
+vim.api.nvim_create_user_command("FSToggle", function(opts)
+	M.toggle(opts)
 end, {
 	range = 2,
 })
