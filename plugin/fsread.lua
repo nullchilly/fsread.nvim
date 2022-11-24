@@ -16,13 +16,13 @@ function M.create(opts)
 	local lines = vim.api.nvim_buf_get_lines(0, line_start, line_end, true)
 	local i = line_start - 1
 	for _, line in pairs(lines) do
+		local len = #line
 		i = i + 1
 		vim.api.nvim_buf_set_extmark(0, ns_id, i, 0, {
 			hl_group = "FSSuffix",
-			end_col = #line,
+			end_col = len,
 		})
 		local st = nil
-		local len = #line
 		for j = 1, len do
 			local cur = string.sub(line, j, j)
 			local re = cur:match("[%w']+")
@@ -100,8 +100,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
 		if M.on then
-			M.clear()
-			M.create()
 			M.highlight()
 		end
 	end,
