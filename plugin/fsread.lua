@@ -82,15 +82,12 @@ end, {
 })
 
 function M.highlight()
-	if vim.g.skip_flow_default_hl then
-		return
-	end
 	if vim.o.background == "dark" then
-		vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#cdd6f4" })
-		vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#6C7086" })
+		vim.api.nvim_set_hl(0, "FSPrefix", { default = true, fg = "#cdd6f4" })
+		vim.api.nvim_set_hl(0, "FSSuffix", { default = true, fg = "#6C7086" })
 	else
-		vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#000000", bold = true })
-		vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#4C4F69" })
+		vim.api.nvim_set_hl(0, "FSPrefix", { default = true, fg = "#000000", bold = true })
+		vim.api.nvim_set_hl(0, "FSSuffix", { default = true, fg = "#4C4F69" })
 	end
 end
 
@@ -99,8 +96,6 @@ M.highlight()
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
-		if M.on then
-			M.highlight()
-		end
+		M.highlight()
 	end,
 })

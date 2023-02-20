@@ -22,7 +22,6 @@ use "nullchilly/fsread.nvim"
 
 ```lua
 vim.g.flow_strength = 0.7 -- low: 0.3, middle: 0.5, high: 0.7 (default)
-vim.g.skip_flow_default_hl = true -- If you want to override default highlights
 vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#cdd6f4" })
 vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#6C7086" })
 ```
